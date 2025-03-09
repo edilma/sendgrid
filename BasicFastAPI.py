@@ -13,8 +13,9 @@ async def read_root():
     return {"message": "hello"}
 
 @app.post("/world")
-async def create_world():
-    return {"message": "world"}
+async def create_world(request: Request):
+    body = await request.json()
+    return body
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))  # Get PORT from env, default to 8000
