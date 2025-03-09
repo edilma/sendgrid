@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
@@ -17,4 +18,5 @@ async def create_world(request:     Message):
     return body
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+port = int(os.environ.get("PORT", 5000))  # Get PORT from env, default to 8000
+    uvicorn.run(app, host="0.0.0.0", port=port) # 0.0.0.0 listens on all interfaces.
