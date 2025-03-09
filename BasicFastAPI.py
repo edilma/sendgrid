@@ -13,10 +13,9 @@ async def read_root():
     return {"message": "hello"}
 
 @app.post("/world")
-async def create_world(request:     Message):                                                                                       
-    body = await request.json()
-    return body
+async def create_world():
+    return {"message": "world"}
 
 if __name__ == "__main__":
-port = int(os.environ.get("PORT", 5000))  # Get PORT from env, default to 8000
+    port = int(os.environ.get("PORT", 8000))  # Get PORT from env, default to 8000
     uvicorn.run(app, host="0.0.0.0", port=port) # 0.0.0.0 listens on all interfaces.
