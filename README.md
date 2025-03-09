@@ -1,0 +1,1 @@
+# Basic FastAPI Project to test in Vercel, Render.com, and Fly.io
