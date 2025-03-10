@@ -31,6 +31,11 @@ class RegistrationData(BaseModel):
 async def read_root():
     return {"message": "hello"}
 
+@app.get("/register")
+async def test_register():
+    return {"message": "This is the register endpoint. Use POST to submit data."}
+
+
 @app.post("/world")
 async def create_world(request: Request):
     body = await request.json()
