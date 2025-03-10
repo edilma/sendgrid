@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr
+from typing import Optional
 import uvicorn
 
 app = FastAPI()
@@ -24,7 +25,7 @@ class RegistrationData(BaseModel):
     last_name: str
     city: str
     country: str
-    phone: str | None = None
+    phone: Optional[str] = None
 
 @app.get("/")
 async def read_root():
